@@ -1,32 +1,24 @@
 html{
-	width: 100%!important;
+	width: 100vw!important;
 	height:100%!important;
+	/* background: linear-gradient(to bottom , #7B94CD 10%, #4A62A4 100%); */
+	overflow: hidden!important;
 }
 .mui-content{
 	width: 100%;
-	height: 100%;
-	/* overflow: hidden; */
+	height: 100vh;
+	background: linear-gradient(to bottom , #7B94CD 10%, #4A62A4 100%);
 }
 /* 标题颜色 */
 header{
 	background: linear-gradient(to right , #314173 10%,#393952 100%);
 }
 /* 9宫格的背景色及边框去除 */
-.mui-table-view.mui-grid-9{  
-	/*替换成自己的颜色*/
-	width: 100%!important;
-	height: 100%!important;
-	margin: 0 auto;
-	/* margin-top: 6%!important ; */
-	background: linear-gradient(to bottom , #7B94CD 10%, #4A62A4 100%);
-	/* border-left: 0px; */
-}
+
 .mui-table-view{
+	width: 100%;
 	border: 0!important;
-	margin-top: 6%!important;
-}
-.mui-grid-9{
-	width: 10rem!important;
+	margin: 10rem auto;
 }
 /* 9宫格的边框去除 */
 ul li{

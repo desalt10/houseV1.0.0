@@ -1,5 +1,8 @@
 // 每个页面加载时 主动发读指令
 function StateRead(i){
+	if(i==0){
+		
+	}
 	if(i==1){
 		SendData('{"add":"0006","params":{"PowerSwitch_?":1}}\r\n');
 	}
