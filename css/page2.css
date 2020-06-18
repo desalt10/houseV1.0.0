@@ -6,7 +6,6 @@
 }
 .container{
 	display: flex;
-	/* margin-top: 1rem; */
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
@@ -16,7 +15,6 @@
 .lightbulb__container {
   position: relative;
   width: 7.5rem;
-  /* height: 19rem; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,24 +23,12 @@
 }
 /* 灯泡上部 */
 .lightbulb__container .lightbulb__bulb {
-  /* position: relative; */
   width: 5rem;
   height: 5rem;
   background: #FEFFBE;
   border-radius: 50%;
   background: #000;
 }
-/* 灯泡内部的白色 */
-/* .lightbulb__container .lightbulb__bulb_inside {
-  position: absolute;
-  right: 1rem;
-  top: 2rem;
-  width: 6rem;
-  height: 6rem;
-  border-right: 1.15rem solid #FCFCF7;
-  border-radius: 50%;
-  transform: rotateZ(-20deg);
-} */
 /* 接连灯泡的下部 */
 .lightbulb__container .lightbulb__bulb_bottom {
   position: absolute;
@@ -74,8 +60,6 @@
 }
 /* 接触灯泡底部灰色部分*/
 .lightbulb__container .lightbulb__base {
-  /* position: absolute; */
-  /* bottom: calc(31vw); */
   width: 2.5rem;
   height: 0.75rem;
   background: #888F98;
@@ -85,8 +69,6 @@
 }
 /* 灯泡螺旋部分 */
 .lightbulb__container .lightbulb__spiral {
-  /* position: absolute; */
-  /* bottom: calc(25vw); */
   width: 1.75rem;
   height: 0.5rem;
   background: #7a828c;
@@ -124,19 +106,10 @@
 }
 
 
-/* 电源开关部分 */
-/* .switch{
-	position: absolute;
-	width: 100%;
-	height: 38%;
-	top: 60px;
-	margin: 0 auto;
-	z-index: 999;
-} */
+
 .switch-1{
 	margin-top: 0.3rem;
 	width: 85%;
-	/* background: red; */
 }
 /* 电源开关部分 */
 #img{
@@ -148,7 +121,6 @@
 .switch-2{
 	width: 80%;
 	margin: 0 auto;
-	/* background: red; */
 }
 /* RGB电源开关部分 */
 .switch-2 .switch2{
@@ -260,7 +232,7 @@
 }
 /* 红色 */
 #Color1{
-	border-color:#DF0023;
+	border-color: #DF0023;
 }
 /* 浅红色 */
 #Color2{
@@ -312,15 +284,6 @@
 }
 /* 动画效果结合灯泡背景使用 */
 @keyframes glow{
-  /* 0% {
-    transform: translateX(-50%) translateY(-15%) scale(0.5);
-  }
-  50% {
-    transform: translateX(-50%) translateY(-15%) scale(0.8);
-  }
-  100% {
-    transform: translateX(-50%) translateY(-15%) scale(0.5);
-  } */
   0% {
     opacity: 1.0;
   }
@@ -333,17 +296,13 @@
 }
 .glow_animation1{
 	animation: glow 2s ease infinite;
-	/* animation-timing-function: 1s; */
 }
 .glow_animation2{
 	animation: glow 1.5s ease infinite;
-	/* animation-timing-function: 1s; */
 }
 .glow_animation3{
 	animation: glow 1s ease infinite;
-	/* animation-timing-function: 1s; */
 }
 .glow_animation4{
 	animation: glow 0.5s ease infinite;
-	/* animation-timing-function: 1s; */
 }

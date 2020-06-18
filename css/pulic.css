@@ -1,6 +1,6 @@
 header{
 	background: linear-gradient(to right , #314173 10%,#393952 100%);
-	/* font-size: calc(10vw)!important ; */
+	
 	
 }
 header h1,a{
@@ -23,4 +23,22 @@ html{
 }
 *{
 	touch-action: none; 
+}
+/* 404样式 */
+.err{
+	position: absolute;
+	width: 100%;
+	top: 45px;
+	bottom: 0;
+	background: #FFFFFF;
+	z-index: 99999;
+	display: none;
+	
+}
+.err img{
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	width: 50%;
+	
 }

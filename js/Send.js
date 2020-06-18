@@ -1,8 +1,6 @@
+
 // 每个页面加载时 主动发读指令
 function StateRead(i){
-	if(i==0){
-		
-	}
 	if(i==1){
 		SendData('{"add":"0006","params":{"PowerSwitch_?":1}}\r\n');
 	}
@@ -67,15 +65,19 @@ function StateRead(i){
 */
 function btnOpen_1(){
 	SendData('{"add":"0006","params":{"PowerSwitch_1":1}}\r\n');
+	vibrate()
 }
 function btnClose_1(){
 	SendData('{"add":"0006","params":{"PowerSwitch_1":0}}\r\n');
+	vibrate()
 }
 function btnOpen_2(){
 	SendData('{"add":"0006","params":{"PowerSwitch_3":1}}\r\n');
+	vibrate()
 }
 function btnClose_2(){
 	SendData('{"add":"0006","params":{"PowerSwitch_3":0}}\r\n');
+	vibrate()
 }
 
 /** Page2 RGB控制  设备编号@0013
@@ -100,6 +102,7 @@ function Power(){
 		SendData('{"add":"0013","lightswitch":0}\r\n');
 	}
 	Powermask = !Powermask;
+	vibrate()
 }
 
 /**
@@ -116,6 +119,7 @@ function RGBpower(){
 	}
 	RGBmask=!RGBmask;
 	SendData('{"add":"0013","rgblight":0}\r\n');
+	vibrate()
 }
 /**
  * 功能介绍: RGB开关开的状态 设备编号@0013
@@ -128,6 +132,7 @@ function switch2_on(){
 	$(".switch2").css("background","#009F3C");
 	$(".switch2").text("关闭");
 	$('.lightbulb__bulb,.lightbulb__bulb_bottom').css("background","#FCFCF7");
+	
 }
 /**
  * 功能介绍: RGB开关关的状态 设备编号@0013
@@ -156,6 +161,7 @@ function RGBColor(){
 	}
 	Colormask=!Colormask; 
 	SendData('{"add":"0013","cw_ww":0}\r\n');
+	vibrate()
 }
 /**
  * 功能介绍:获取闪烁模式滑块的值并发送指令 设备编号@0013
@@ -246,6 +252,7 @@ function Color(s){
 	$("#Color"+s).css("background",color_arr[s-1]);
 	$('.lightbulb__bulb,.lightbulb__bulb_bottom').css("background",color_arr[s-1]);
 	SendData('{"add":"0013","hue":'+(s-1)+'}\r\n');
+	vibrate()
 }
 
 
@@ -266,6 +273,7 @@ function btn(i){
 	}else{
 		SendData('{"add":"0002","control0'+i+'":1}\r\n');
 	}
+	vibrate()
 }
 
 var btn_power_mask;
@@ -275,6 +283,7 @@ function btnPower(){
 	}else{
 		SendData('{"add":"0002","vwo":1}\r\n');
 	}
+	vibrate()
 }
 
 /** Page4 空调遥控控制  设备编号@0011
@@ -287,6 +296,7 @@ function btnPower(){
 *  功能说明: airTry() 尝试匹配按键
 *  功能说明: airCon()  匹配成功按键
 */
+
 var air_power_mask = false;
 function airPower(){
 	if(air_power_mask){
@@ -297,7 +307,7 @@ function airPower(){
 		SendData('{"add":"0011","PowerSwitch":1}\r\n');
 	}
 	air_power_mask =!air_power_mask;
-	
+	vibrate()
 }
 
  // 电源开关关闭时
@@ -349,6 +359,7 @@ function airSpeed(){
 			break;
 		}
 	}
+	vibrate()
 }
 
 // 空调模式
@@ -392,6 +403,7 @@ function airMode(){
 			break;
 		}
 	}
+	vibrate()
 }
 
 // 空调扫风
@@ -407,6 +419,7 @@ function airWind(){
 	}
 	localStorage.setItem( "airwind",wind_mask);
 	wind_mask =!wind_mask;
+	vibrate()
 }
 
 // 空调温度
@@ -430,152 +443,154 @@ function airTem(i){
 	$("#text-tem").text(tem_bug+"℃");
 	SendData('{"add":"0011","TargetTemperature":'+tem_bug+'}\r\n');
 	localStorage.setItem( "airtem",tem_bug);
+	vibrate()
 }
 
 // 品牌选择
 
 function showLevel1() {
-					var picker = new mui.PopPicker({
-						layer: 1,
-						buttons: ['取消', '确定']
-					});
-					picker.setData([{
-						value: "1",
-						text: "海尔"
-					}, {
-						value: "2",
-						text: "格力"
-					}, {
-						value: "3",
-						text: "美的"
-					}, {
-						value: "4",
-						text: "长虹"
-					}, {
-						value: "5",
-						text: "志高"
-					},{
-						value: "6",
-						text: "华宝"
-					},
-					{
-						value: "7",
-						text: "科龙"
-					},
-					{
-						value: "8",
-						text: "TCL"
-					},
-					{
-						value: "9",
-						text: "格兰仕"
-					},
-					{
-						value: "10",
-						text: "华凌"
-					},
-					{
-						value: "11",
-						text: "春兰"
-					},
-					
-					{
-						value: "12",
-						text: "奥克斯"
-					},
-					{
-						value: "13",
-						text: "新科"
-					},
-					{
-						value: "14",
-						text: "澳柯玛"
-					},
-					{
-						value: "15",
-						text: "海信"
-					},
-					{
-						value: "16",
-						text: "飞鹿"
-					},
-					{
-						value: "17",
-						text: "东宝（东新宝）"
-					},
-					{
-						value: "18",
-						text: "新飞"
-					},
-					{
-						value: "19",
-						text: "三洋"
-					},
-					{
-						value: "20",
-						text: "三菱"
-					},
-					{
-						value: "21",
-						text: "LG"
-					},
-					{
-						value: "22",
-						text: "东芝"
-					},
-					{
-						value: "23",
-						text: "日立"
-					},
-					{
-						value: "24",
-						text: "乐声"
-					},
-					{
-						value: "25",
-						text: "开利"
-					},
-					{
-						value: "26",
-						text: "富士通(珍宝)"
-					},
-					{
-						value: "27",
-						text: "声宝"
-					},
-					{
-						value: "28",
-						text: "大金"
-					},
-					{
-						value: "29",
-						text: "惠而浦"
-					},
-					{
-						value: "30",
-						text: "YORK"
-					},
-					{
-						value: "31",
-						text: "现代（大宇）"
-					},
-					{
-						value: "32",
-						text: "伊莱克斯"
-					},
-					{
-						value: "33",
-						text: "迎燕"
-					},
-					{
-						value: "34",
-						text: "玉兔"
-					},
-					{
-						value: "35",
-						text: "中意"
-					}
-					]);
+	vibrate()
+	var picker = new mui.PopPicker({
+		layer: 1,
+		buttons: ['取消', '确定']
+	});
+	picker.setData([{
+		value: "1",
+		text: "海尔"
+	}, {
+		value: "2",
+		text: "格力"
+	}, {
+		value: "3",
+		text: "美的"
+	}, {
+		value: "4",
+		text: "长虹"
+	}, {
+		value: "5",
+		text: "志高"
+	},{
+		value: "6",
+		text: "华宝"
+	},
+	{
+		value: "7",
+		text: "科龙"
+	},
+	{
+		value: "8",
+		text: "TCL"
+	},
+	{
+		value: "9",
+		text: "格兰仕"
+	},
+	{
+		value: "10",
+		text: "华凌"
+	},
+	{
+		value: "11",
+		text: "春兰"
+	},
+	
+	{
+		value: "12",
+		text: "奥克斯"
+	},
+	{
+		value: "13",
+		text: "新科"
+	},
+	{
+		value: "14",
+		text: "澳柯玛"
+	},
+	{
+		value: "15",
+		text: "海信"
+	},
+	{
+		value: "16",
+		text: "飞鹿"
+	},
+	{
+		value: "17",
+		text: "东宝（东新宝）"
+	},
+	{
+		value: "18",
+		text: "新飞"
+	},
+	{
+		value: "19",
+		text: "三洋"
+	},
+	{
+		value: "20",
+		text: "三菱"
+	},
+	{
+		value: "21",
+		text: "LG"
+	},
+	{
+		value: "22",
+		text: "东芝"
+	},
+	{
+		value: "23",
+		text: "日立"
+	},
+	{
+		value: "24",
+		text: "乐声"
+	},
+	{
+		value: "25",
+		text: "开利"
+	},
+	{
+		value: "26",
+		text: "富士通(珍宝)"
+	},
+	{
+		value: "27",
+		text: "声宝"
+	},
+	{
+		value: "28",
+		text: "大金"
+	},
+	{
+		value: "29",
+		text: "惠而浦"
+	},
+	{
+		value: "30",
+		text: "YORK"
+	},
+	{
+		value: "31",
+		text: "现代（大宇）"
+	},
+	{
+		value: "32",
+		text: "伊莱克斯"
+	},
+	{
+		value: "33",
+		text: "迎燕"
+	},
+	{
+		value: "34",
+		text: "玉兔"
+	},
+	{
+		value: "35",
+		text: "中意"
+	}
+	]);
 document.getElementById("showUserPicker1").addEventListener('tap', function(event) {
 	$(".text-1,.text-2").attr("disabled",false);
 	// 默认显示第4项
@@ -596,6 +611,7 @@ document.getElementById("showUserPicker1").addEventListener('tap', function(even
 
 function airTry(){
 	SendData('{"add":"0011","ok":2}\r\n');
+	vibrate()
 }
 
 //匹配成功
@@ -610,6 +626,7 @@ function airCon(){
 		$(".text-2").text("匹配成功");
 	}
 	aircon_mask = !aircon_mask;
+	vibrate()
 }
 
 
@@ -691,6 +708,7 @@ function TvCon(s){
 			break
 		}
 	}
+	vibrate()
 }
 // 电视学习按键
 var study_mask = false;
@@ -701,7 +719,7 @@ function TVstudy(){
 		SendData('{"add":"0010","study":0}\r\n');
 	}
 	// study_mask =!study_mask;
-	
+	vibrate()
 }
 // 电视电源按键
 var tv_power = true;
@@ -712,6 +730,7 @@ function TVpower(){
 		SendData('{"add":"0010","PowerSwitch":0}\r\n');
 	}
 	tv_power =!tv_power;
+	vibrate()
 }
 
 
@@ -723,6 +742,7 @@ function TVpower(){
 */
 function CurtainsBtn(i){
 	SendData('{"add":"0005","curtainoperation":'+i+'}\r\n');
+	vibrate()
 }
 
 /** Page7 窗户控制   设备号0004
@@ -751,6 +771,7 @@ function getSliderValue2(){
 }
 
 function Getli(s){
+	vibrate()
 	switch(s){
 		case 1:{
 			SendData('{"add":"0004","actuatoroperationmode":0}\r\n');
@@ -806,17 +827,22 @@ function Drpass(s){
 	dr_bug +=s;
 	$("#dr-text").val(dr_bug)
 	$("#dr-text").css("font-size","calc(100vw/12)");
+	vibrate()
 }
 function Drclean(){
 	dr_bug = dr_bug.substring(0,dr_bug.length - 1)
 	$("#dr-text").val(dr_bug)
 	$("#dr-text").css("font-size","calc(100vw/12)");
+	vibrate()
 }
 function DrCon(){
 	SendData('{"add":"0007","password":"'+dr_bug+'"}\r\n');
+	vibrate()
 }
 
-
+function vibrate(){
+	plus.device.vibrate(50);
+}
 
 /** Page9 水表控制  设备号0008
 *  功能说明:  Status()控制阀门
@@ -833,10 +859,12 @@ function Status(i){
 	if(i==2){
 		SendData('{"add":"0008","valvecontrol":2}\r\n');
 	}
+	vibrate()
 }
 
 function Water_read(){
 	SendData('{"add":"0008","read":0}\r\n');
+	vibrate()
 }
 
 /** Page10 电表控制 设备号0001
@@ -844,6 +872,7 @@ function Water_read(){
 */
 function Ele_read(){
 	SendData('{"add":"0001","automanual":1}\r\n');
+	vibrate()
 }
 
 /** Page11 温湿度控制 设备号0009
@@ -851,6 +880,7 @@ function Ele_read(){
 */
 function Th_read(){
 	SendData('{"add":"0009","read":0}\r\n');
+	vibrate()
 }
 
 /** Page12 智能开关控制  设备编号0014-0021
@@ -865,6 +895,7 @@ function Socket(i){
 	}else{
 		SendData('{"add":"00'+(i+13)+'","params":{"PowerSwitch_1":1}}\r\n');
 	}
+	vibrate()
 }
 
 
@@ -877,15 +908,18 @@ var sm_bug="";
 function Smdetest(){
 	mui("#popover").popover('show', document.getElementById("div"));
 	$("#smtext").val(sm_bug);
+	vibrate()
 }
 // var sm_bug="";
 function Smpass(s){
 	sm_bug +=s;
 	$("#smtext").val(sm_bug);
+	vibrate()
 }
 function Smclean(){
 	sm_bug = sm_bug.substring(0,sm_bug.length - 1)
 	$("#smtext").val(sm_bug)
+	vibrate()
 }
 var sm_mask;
 function SmCon(){
@@ -895,4 +929,5 @@ function SmCon(){
 	}else{
 		SendData('{"add":"0012","Disarming":"'+sm_bug+'"}\r\n');
 	}
+	vibrate()
 }

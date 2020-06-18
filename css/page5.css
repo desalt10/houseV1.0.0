@@ -2,7 +2,6 @@
 	height: 100vh;
 	width: 100%;
 	background-color: #314173;
-	/* overflow: hidden; */
 }
 .container {
   padding-top: 0.3rem;
@@ -21,7 +20,6 @@ button{
 	font-size: 0.4rem;
 	background: rgba(204,204,204,.5);
 	text-align: center;
-	/* padding: calc(100vw/65); */
 }
 .container .part1 button{
 	width: 1rem;
@@ -39,7 +37,6 @@ button{
 .part1,.part2,.part3,.part4,.part5{
 	width: 90%;
 	margin: 0.34rem auto ;
-	/* height: 1rem; */
 }
 .container .part1{
 	height: 1rem;
@@ -52,7 +49,6 @@ button{
 	width: 100%;
 }
 .part3{
-	/* overflow: hidden; */
 	margin-bottom: 0;
 }
 

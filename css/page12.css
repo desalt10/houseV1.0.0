@@ -6,7 +6,6 @@
 .container{
 	width: 100%;
 	margin-top: 0.5rem;
-	/* margin: 3vh auto; */
 }
 
 .container ul{
@@ -16,7 +15,6 @@
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	/* justify-content: space-between; */
 	justify-content: space-around;
 }
 
@@ -27,7 +25,6 @@
 	height: 2.8rem;
 	margin: 0.2rem;
 	margin-bottom: 0.6rem;
-	/* background: red; */
 }
 /* 数字部分 */
 .num{
@@ -55,7 +52,6 @@
 	position: relative;
 	width: 100%;
 	height: 50%;
-	/* background: red; */
 }
 .hole-2{
 	position: absolute;
@@ -96,7 +92,6 @@
 	height: 0.6rem;
 	border-radius: 50%;
 	border: 0.03rem solid #C0C0C0 ;
-	/* background: #00FFFF; */
 }
 .circle-1{
 	position: absolute;
@@ -136,11 +131,7 @@
 	border-right: 0.1rem solid white;
 	border-bottom: 0.1rem solid #edf1f4;
 	border-left: 0.1rem solid rgba(255, 255, 255, 0.8);
-	/* border-radius: 0 0.375em 0.375em 0 / 0 50% 50% 0; */
-	/* margin: 0.375em 0.375em 0.1875em 0.1875em; */
-	/* transform-origin: 0 0; */
 	background: #000000;
-	/* background: #00FFFF; */
 }
 .hole-3-1{
 	left: 25%;

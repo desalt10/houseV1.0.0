@@ -1,7 +1,6 @@
 html{
 	width: 100vw!important;
 	height:100%!important;
-	/* background: linear-gradient(to bottom , #7B94CD 10%, #4A62A4 100%); */
 	overflow: hidden!important;
 }
 .mui-content{
@@ -24,7 +23,6 @@ header{
 ul li{
 	border:0!important;
 	margin: 0!important;
-	/* margin-bottom: 0!important; */
 }
 /* a标签的背景色及圆角 */
 .mui-table-view-cell a{

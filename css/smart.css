@@ -169,3 +169,21 @@ header{
 .on{
 	display: none;
 }
+/* 404样式 */
+.err{
+	position: absolute;
+	width: 100%;
+	top: 45px;
+	bottom: 0px;
+	background: #FFFFFF;
+	z-index: 999;
+	display: none;
+	
+}
+.err img{
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	width: 50%;
+	
+}
