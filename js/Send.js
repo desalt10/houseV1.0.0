@@ -2,46 +2,46 @@
 // 每个页面加载时 主动发读指令
 function StateRead(i){
 	if(i==1){
-		SendData('{"add":"0006","params":{"PowerSwitch_?":1}}\r\n');
+		Send_Data_Str(1,'{"add":"0006","params":{"PowerSwitch_?":1}}\r\n');
 	}
 	if(i==3){
-		SendData('{"add":"0002","read":0}\r\n');
+		Send_Data_Str(1,'{"add":"0002","read":0}\r\n');
 	}
 	if(i==5){
-		SendData('{"add":"0010","read":0}\r\n');
+		Send_Data_Str(1,'{"add":"0010","read":0}\r\n');
 	}
 	if(i==6){
-		SendData('{"add":"0005","read":0}\r\n');
+		Send_Data_Str(1,'{"add":"0005","read":0}\r\n');
 	}
 	if(i==7){
-		SendData('{"add":"0004","read":0}\r\n');
+		Send_Data_Str(1,'{"add":"0004","read":0}\r\n');
 	}
 	if(i==9){
-		SendData('{"add":"0008","read":0}\r\n');
+		Send_Data_Str(1,'{"add":"0008","read":0}\r\n');
 	}
 	if(i==10){
-		SendData('{"add":"0001","read":0}\r\n');
+		Send_Data_Str(1,'{"add":"0001","read":0}\r\n');
 	}
 	if(i==11){
-		SendData('{"add":"0009","read":0}\r\n');
+		Send_Data_Str(1,'{"add":"0009","read":0}\r\n');
 	}
 	if(i==12){
 		setTimeout(function(){
-			SendData('{"add":"0014","params":{"PowerSwitch_?":1}}\r\n');
+			Send_Data_Str(1,'{"add":"0014","params":{"PowerSwitch_?":1}}\r\n');
 		setTimeout(function(){
-			SendData('{"add":"0015","params":{"PowerSwitch_?":1}}\r\n');
+			Send_Data_Str(1,'{"add":"0015","params":{"PowerSwitch_?":1}}\r\n');
 		setTimeout(function(){
-			SendData('{"add":"0016","params":{"PowerSwitch_?":1}}\r\n');
+			Send_Data_Str(1,'{"add":"0016","params":{"PowerSwitch_?":1}}\r\n');
 		setTimeout(function(){
-			SendData('{"add":"0017","params":{"PowerSwitch_?":1}}\r\n');
+			Send_Data_Str(1,'{"add":"0017","params":{"PowerSwitch_?":1}}\r\n');
 		setTimeout(function(){
-			SendData('{"add":"0018","params":{"PowerSwitch_?":1}}\r\n');
+			Send_Data_Str(1,'{"add":"0018","params":{"PowerSwitch_?":1}}\r\n');
 		setTimeout(function(){
-			SendData('{"add":"0019","params":{"PowerSwitch_?":1}}\r\n');
+			Send_Data_Str(1,'{"add":"0019","params":{"PowerSwitch_?":1}}\r\n');
 		setTimeout(function(){
-			SendData('{"add":"0020","params":{"PowerSwitch_?":1}}\r\n');
+			Send_Data_Str(1,'{"add":"0020","params":{"PowerSwitch_?":1}}\r\n');
 		setTimeout(function(){
-			SendData('{"add":"0021","params":{"PowerSwitch_?":1}}\r\n');
+			Send_Data_Str(1,'{"add":"0021","params":{"PowerSwitch_?":1}}\r\n');
 		},200)
 		},200)
 		},200)
@@ -52,7 +52,7 @@ function StateRead(i){
 		},200)
 	}
 	if(i==14){
-		SendData('{"add":"0012","read":0}\r\n');
+		Send_Data_Str(1,'{"add":"0012","read":0}\r\n');
 	}
 }
 
@@ -64,19 +64,19 @@ function StateRead(i){
 *  功能说明: btnClose_2() 灯2 关
 */
 function btnOpen_1(){
-	SendData('{"add":"0006","params":{"PowerSwitch_1":1}}\r\n');
+	Send_Data_Str(1,'{"add":"0006","params":{"PowerSwitch_1":1}}\r\n');
 	vibrate()
 }
 function btnClose_1(){
-	SendData('{"add":"0006","params":{"PowerSwitch_1":0}}\r\n');
+	Send_Data_Str(1,'{"add":"0006","params":{"PowerSwitch_1":0}}\r\n');
 	vibrate()
 }
 function btnOpen_2(){
-	SendData('{"add":"0006","params":{"PowerSwitch_3":1}}\r\n');
+	Send_Data_Str(1,'{"add":"0006","params":{"PowerSwitch_3":1}}\r\n');
 	vibrate()
 }
 function btnClose_2(){
-	SendData('{"add":"0006","params":{"PowerSwitch_3":0}}\r\n');
+	Send_Data_Str(1,'{"add":"0006","params":{"PowerSwitch_3":0}}\r\n');
 	vibrate()
 }
 
@@ -93,13 +93,13 @@ function Power(){
 		$("#img").attr("src", "../img/p2-on.png");
 		$(".switch2").css("visibility","visible");
 		RGBmask = true;
-		SendData('{"add":"0013","lightswitch":1}\r\n');
+		Send_Data_Str(1,'{"add":"0013","lightswitch":1}\r\n');
 	}else{
 		$(".lightbulb__bulb").removeClass("glow_animation1 glow_animation2 glow_animation3 glow_animation4");
 		$("#img").attr("src", "../img/p2-off.png");
 		$(".switch2").css("visibility","hidden");
 		switch2_off()
-		SendData('{"add":"0013","lightswitch":0}\r\n');
+		Send_Data_Str(1,'{"add":"0013","lightswitch":0}\r\n');
 	}
 	Powermask = !Powermask;
 	vibrate()
@@ -118,7 +118,7 @@ function RGBpower(){
 		switch2_off();
 	}
 	RGBmask=!RGBmask;
-	SendData('{"add":"0013","rgblight":0}\r\n');
+	Send_Data_Str(1,'{"add":"0013","rgblight":0}\r\n');
 	vibrate()
 }
 /**
@@ -160,7 +160,7 @@ function RGBColor(){
 		$('.switch3,.lightbulb__bulb,.lightbulb__bulb_bottom').css("background","#FEFFBE");
 	}
 	Colormask=!Colormask; 
-	SendData('{"add":"0013","cw_ww":0}\r\n');
+	Send_Data_Str(1,'{"add":"0013","cw_ww":0}\r\n');
 	vibrate()
 }
 /**
@@ -184,7 +184,7 @@ function getVal1(){
 	if(rangeobj1[0].value==4){
 		$(".lightbulb__bulb").addClass("glow_animation4")
 	}
-	SendData('{"add":"0013","flicker":"'+rangeobj1[0].value+'"}\r\n');
+	Send_Data_Str(1,'{"add":"0013","flicker":"'+rangeobj1[0].value+'"}\r\n');
 }
 /**
  * 功能介绍:获取音乐模式滑块的值并发送指令 设备编号@0013
@@ -193,7 +193,7 @@ function getVal1(){
 function getVal2(){
 	var rangeobj2 = mui('#range2');
 	$(".text2").text('共有4种模式,当前为模式'+rangeobj2[0].value);
-	SendData('{"add":"0013","music":"'+rangeobj2[0].value+'"}\r\n');
+	Send_Data_Str(1,'{"add":"0013","music":"'+rangeobj2[0].value+'"}\r\n');
 }
 
 /**
@@ -203,7 +203,7 @@ function getVal2(){
 function getVal3(){
 	var rangeobj3 = mui('#range3');
 	$(".text3").text('共有8种模式,当前为亮度'+rangeobj3[0].value);
-	SendData('{"add":"0013","luminance":"'+rangeobj3[0].value+'"}\r\n');
+	Send_Data_Str(1,'{"add":"0013","luminance":"'+rangeobj3[0].value+'"}\r\n');
 	switch(rangeobj3[0].value){
 		case "1":{
 			$(".lightbulb__bulb").css("filter","opacity(35%)");
@@ -251,7 +251,7 @@ function Color(s){
 	$(".color li").css("background","transparent");
 	$("#Color"+s).css("background",color_arr[s-1]);
 	$('.lightbulb__bulb,.lightbulb__bulb_bottom').css("background",color_arr[s-1]);
-	SendData('{"add":"0013","hue":'+(s-1)+'}\r\n');
+	Send_Data_Str(1,'{"add":"0013","hue":'+(s-1)+'}\r\n');
 	vibrate()
 }
 
@@ -267,11 +267,11 @@ var btn_mask=[];
 // var control_num;
 function btn(i){
 	if(btn_mask[i-1]){
-		// SendData('{"add":"0002","control01":0}\r\n');
-		SendData('{"add":"0002","control0'+i+'":0}\r\n');
+		// Send_Data_Str(1,'{"add":"0002","control01":0}\r\n');
+		Send_Data_Str(1,'{"add":"0002","control0'+i+'":0}\r\n');
 		// btn_mask[i-1]=0;
 	}else{
-		SendData('{"add":"0002","control0'+i+'":1}\r\n');
+		Send_Data_Str(1,'{"add":"0002","control0'+i+'":1}\r\n');
 	}
 	vibrate()
 }
@@ -279,9 +279,9 @@ function btn(i){
 var btn_power_mask;
 function btnPower(){
 	if(btn_power_mask){
-		SendData('{"add":"0002","vwo":0}\r\n');
+		Send_Data_Str(1,'{"add":"0002","vwo":0}\r\n');
 	}else{
-		SendData('{"add":"0002","vwo":1}\r\n');
+		Send_Data_Str(1,'{"add":"0002","vwo":1}\r\n');
 	}
 	vibrate()
 }
@@ -301,10 +301,10 @@ var air_power_mask = false;
 function airPower(){
 	if(air_power_mask){
 		Reset()
-		SendData('{"add":"0011","PowerSwitch":0}\r\n');
+		Send_Data_Str(1,'{"add":"0011","PowerSwitch":0}\r\n');
 	}else{
 		Open()
-		SendData('{"add":"0011","PowerSwitch":1}\r\n');
+		Send_Data_Str(1,'{"add":"0011","PowerSwitch":1}\r\n');
 	}
 	air_power_mask =!air_power_mask;
 	vibrate()
@@ -332,28 +332,28 @@ function airSpeed(){
 	switch(speed_buf){
 		case 0:{
 			$("#text-speed").text("自动");
-			SendData('{"add":"0011","WindSpeed":0}\r\n');
+			Send_Data_Str(1,'{"add":"0011","WindSpeed":0}\r\n');
 			localStorage.setItem( "airspeed",speed_buf);
 			speed_buf = 1;
 			break;
 		}
 		case 1:{
 			$("#text-speed").text("风速1");
-			SendData('{"add":"0011","WindSpeed":1}\r\n');
+			Send_Data_Str(1,'{"add":"0011","WindSpeed":1}\r\n');
 			localStorage.setItem( "airspeed",speed_buf);
 			speed_buf = 2;
 			break;
 		}
 		case 2:{
 			$("#text-speed").text("风速2");
-			SendData('{"add":"0011","WindSpeed":2}\r\n');
+			Send_Data_Str(1,'{"add":"0011","WindSpeed":2}\r\n');
 			localStorage.setItem( "airspeed",speed_buf);
 			speed_buf = 3;
 			break;
 		}
 		case 3:{
 			$("#text-speed").text("风速3");
-			SendData('{"add":"0011","WindSpeed":3}\r\n');
+			Send_Data_Str(1,'{"add":"0011","WindSpeed":3}\r\n');
 			localStorage.setItem( "airspeed",speed_buf);
 			speed_buf = 0;
 			break;
@@ -369,35 +369,35 @@ function airMode(){
 	switch(mode_buf){
 		case 0:{
 			$("#text-mode").text("自动");
-			SendData('{"add":"0011","WorkMode":0}\r\n');
+			Send_Data_Str(1,'{"add":"0011","WorkMode":0}\r\n');
 			localStorage.setItem( "airmode",mode_buf);
 			mode_buf = 1;
 			break;
 		}
 		case 1:{
 			$("#text-mode").text("制冷");
-			SendData('{"add":"0011","WorkMode":1}\r\n');
+			Send_Data_Str(1,'{"add":"0011","WorkMode":1}\r\n');
 			localStorage.setItem( "airmode",mode_buf);
 			mode_buf = 2;
 			break;
 		}
 		case 2:{
 			$("#text-mode").text("制热");
-			SendData('{"add":"0011","WorkMode":2}\r\n');
+			Send_Data_Str(1,'{"add":"0011","WorkMode":2}\r\n');
 			localStorage.setItem( "airmode",mode_buf);
 			mode_buf = 3;
 			break;
 		}
 		case 3:{
 			$("#text-mode").text("通风");
-			SendData('{"add":"0011","WorkMode":3}\r\n');
+			Send_Data_Str(1,'{"add":"0011","WorkMode":3}\r\n');
 			localStorage.setItem( "airmode",mode_buf);
 			mode_buf = 4;
 			break;
 		}
 		case 4:{
 			$("#text-mode").text("除湿");
-			SendData('{"add":"0011","WorkMode":4}\r\n');
+			Send_Data_Str(1,'{"add":"0011","WorkMode":4}\r\n');
 			localStorage.setItem( "airmode",mode_buf);
 			mode_buf = 0;
 			break;
@@ -412,10 +412,10 @@ function airMode(){
 function airWind(){
 	if(wind_mask){
 		$("#text-wind").text("上下摆风");
-		SendData('{"add":"0011","VerticalSwitch":1}\r\n');
+		Send_Data_Str(1,'{"add":"0011","VerticalSwitch":1}\r\n');
 	}else{
 		$("#text-wind").text("无摆风");
-		SendData('{"add":"0011","VerticalSwitch":0}\r\n');
+		Send_Data_Str(1,'{"add":"0011","VerticalSwitch":0}\r\n');
 	}
 	localStorage.setItem( "airwind",wind_mask);
 	wind_mask =!wind_mask;
@@ -441,7 +441,7 @@ function airTem(i){
 		}
 	}
 	$("#text-tem").text(tem_bug+"℃");
-	SendData('{"add":"0011","TargetTemperature":'+tem_bug+'}\r\n');
+	Send_Data_Str(1,'{"add":"0011","TargetTemperature":'+tem_bug+'}\r\n');
 	localStorage.setItem( "airtem",tem_bug);
 	vibrate()
 }
@@ -599,7 +599,7 @@ document.getElementById("showUserPicker1").addEventListener('tap', function(even
 		var text = selectItems[0].text;
 		var value = selectItems[0].value;
 		$("#showUserPicker1").text(text);
-		SendData('{"add":"0011","SelectModel":'+value+'}\r\n');
+		Send_Data_Str(1,'{"add":"0011","SelectModel":'+value+'}\r\n');
 		localStorage.setItem( "airtext",text);
 		localStorage.setItem( "airvalue",value);
 	});
@@ -610,7 +610,7 @@ document.getElementById("showUserPicker1").addEventListener('tap', function(even
 // 尝试匹配
 
 function airTry(){
-	SendData('{"add":"0011","ok":2}\r\n');
+	Send_Data_Str(1,'{"add":"0011","ok":2}\r\n');
 	vibrate()
 }
 
@@ -652,59 +652,59 @@ function airCon(){
 function TvCon(s){
 	switch(s){
 		case 0:{
-			SendData('{"add":"0010","Menustrip":0}\r\n');
+			Send_Data_Str(1,'{"add":"0010","Menustrip":0}\r\n');
 			break
 		}
 		case 1:{
-			SendData('{"add":"0010","Homepage":0}\r\n');
+			Send_Data_Str(1,'{"add":"0010","Homepage":0}\r\n');
 			break
 		}
 		case 2:{
-			SendData('{"add":"0010","UP":0}\r\n');
+			Send_Data_Str(1,'{"add":"0010","UP":0}\r\n');
 			break
 		}
 		case 3:{
-			SendData('{"add":"0010","Right":0}\r\n');
+			Send_Data_Str(1,'{"add":"0010","Right":0}\r\n');
 			break
 		}
 		case 4:{
-			SendData('{"add":"0010","left":0}\r\n');
+			Send_Data_Str(1,'{"add":"0010","left":0}\r\n');
 			break
 		}
 		case 5:{
-			SendData('{"add":"0010","down":0}\r\n');
+			Send_Data_Str(1,'{"add":"0010","down":0}\r\n');
 			break
 		}
 		case 6:{
-			SendData('{"add":"0010","ok":0}\r\n');
+			Send_Data_Str(1,'{"add":"0010","ok":0}\r\n');
 			break
 		}
 		case 7:{
-			SendData('{"add":"0010","quit":0}\r\n');
+			Send_Data_Str(1,'{"add":"0010","quit":0}\r\n');
 			break
 		}
 		case 8:{
-			SendData('{"add":"0010","Return":0}\r\n');
+			Send_Data_Str(1,'{"add":"0010","Return":0}\r\n');
 			break
 		}
 		case 9:{
-			SendData('{"add":"0010","Volume":0}\r\n');
+			Send_Data_Str(1,'{"add":"0010","Volume":0}\r\n');
 			break
 		}
 		case 10:{
-			SendData('{"add":"0010","Volume":1}\r\n');
+			Send_Data_Str(1,'{"add":"0010","Volume":1}\r\n');
 			break
 		}
 		case 11:{
-			SendData('{"add":"0010","silence":0}\r\n');
+			Send_Data_Str(1,'{"add":"0010","silence":0}\r\n');
 			break
 		}
 		case 12:{
-			SendData('{"add":"0010","Channel":0}\r\n');
+			Send_Data_Str(1,'{"add":"0010","Channel":0}\r\n');
 			break
 		}
 		case 13:{
-			SendData('{"add":"0010","Channel":1}\r\n');
+			Send_Data_Str(1,'{"add":"0010","Channel":1}\r\n');
 			break
 		}
 	}
@@ -714,9 +714,9 @@ function TvCon(s){
 var study_mask = false;
 function TVstudy(){
 	if(study_mask){
-		SendData('{"add":"0010","study":1}\r\n');
+		Send_Data_Str(1,'{"add":"0010","study":1}\r\n');
 	}else{
-		SendData('{"add":"0010","study":0}\r\n');
+		Send_Data_Str(1,'{"add":"0010","study":0}\r\n');
 	}
 	// study_mask =!study_mask;
 	vibrate()
@@ -725,9 +725,9 @@ function TVstudy(){
 var tv_power = true;
 function TVpower(){
 	if(tv_power){
-		SendData('{"add":"0010","PowerSwitch":0}\r\n');
+		Send_Data_Str(1,'{"add":"0010","PowerSwitch":0}\r\n');
 	}else{
-		SendData('{"add":"0010","PowerSwitch":0}\r\n');
+		Send_Data_Str(1,'{"add":"0010","PowerSwitch":0}\r\n');
 	}
 	tv_power =!tv_power;
 	vibrate()
@@ -741,7 +741,7 @@ function TVpower(){
 *  状态值: 0:打开   1:关闭  2:暂停
 */
 function CurtainsBtn(i){
-	SendData('{"add":"0005","curtainoperation":'+i+'}\r\n');
+	Send_Data_Str(1,'{"add":"0005","curtainoperation":'+i+'}\r\n');
 	vibrate()
 }
 
@@ -761,52 +761,52 @@ var slider1_bug,slider2_bug;
 function getSliderValue1(){
 	// $("#slider_pos").text(sliderElement1.value);
 	slider1_bug = sliderElement1.value
-	SendData('{"add":"0004","actuatorposition":'+slider1_bug+'}\r\n');
+	Send_Data_Str(1,'{"add":"0004","actuatorposition":'+slider1_bug+'}\r\n');
 }
 
 function getSliderValue2(){
 	// $("#slider_pin").text(sliderElement2.value)
 	slider2_bug = sliderElement2.value
-	SendData('{"add":"0004","clampwindow":'+slider2_bug+'}\r\n');
+	Send_Data_Str(1,'{"add":"0004","clampwindow":'+slider2_bug+'}\r\n');
 }
 
 function Getli(s){
 	vibrate()
 	switch(s){
 		case 1:{
-			SendData('{"add":"0004","actuatoroperationmode":0}\r\n');
+			Send_Data_Str(1,'{"add":"0004","actuatoroperationmode":0}\r\n');
 			break;
 		}
 		case 2:{
-			SendData('{"add":"0004","actuatoroperationmode":1}\r\n');
+			Send_Data_Str(1,'{"add":"0004","actuatoroperationmode":1}\r\n');
 			break;
 		}
 		case 3:{
-			SendData('{"add":"0004","actuatoroperationmode":2}\r\n');
+			Send_Data_Str(1,'{"add":"0004","actuatoroperationmode":2}\r\n');
 			break;
 		}
 		case 4:{
-			SendData('{"add":"0004","speedwindow":1}\r\n');
+			Send_Data_Str(1,'{"add":"0004","speedwindow":1}\r\n');
 			break;
 		}
 		case 5:{
-			SendData('{"add":"0004","speedwindow":2}\r\n');
+			Send_Data_Str(1,'{"add":"0004","speedwindow":2}\r\n');
 			break;
 		}
 		case 6:{
-			SendData('{"add":"0004","speedwindow":3}\r\n');
+			Send_Data_Str(1,'{"add":"0004","speedwindow":3}\r\n');
 			break;
 		}
 		case 7:{
-			SendData('{"add":"0004","speedwindow":4}\r\n');
+			Send_Data_Str(1,'{"add":"0004","speedwindow":4}\r\n');
 			break;
 		}
 		case 8:{
-			SendData('{"add":"0004","automanual":0}\r\n');
+			Send_Data_Str(1,'{"add":"0004","automanual":0}\r\n');
 			break;
 		}
 		case 9:{
-			SendData('{"add":"0004","reversewindow":0}\r\n');
+			Send_Data_Str(1,'{"add":"0004","reversewindow":0}\r\n');
 			break;
 		}
 	}
@@ -836,7 +836,7 @@ function Drclean(){
 	vibrate()
 }
 function DrCon(){
-	SendData('{"add":"0007","password":"'+dr_bug+'"}\r\n');
+	Send_Data_Str(1,'{"add":"0007","password":"'+dr_bug+'"}\r\n');
 	vibrate()
 }
 
@@ -851,19 +851,19 @@ function vibrate(){
 */
 function Status(i){
 	if(i==0){
-		SendData('{"add":"0008","valvecontrol":0}\r\n');
+		Send_Data_Str(1,'{"add":"0008","valvecontrol":0}\r\n');
 	}
 	if(i==1){
-		SendData('{"add":"0008","valvecontrol":1}\r\n');
+		Send_Data_Str(1,'{"add":"0008","valvecontrol":1}\r\n');
 	}
 	if(i==2){
-		SendData('{"add":"0008","valvecontrol":2}\r\n');
+		Send_Data_Str(1,'{"add":"0008","valvecontrol":2}\r\n');
 	}
 	vibrate()
 }
 
 function Water_read(){
-	SendData('{"add":"0008","read":0}\r\n');
+	Send_Data_Str(1,'{"add":"0008","read":0}\r\n');
 	vibrate()
 }
 
@@ -871,7 +871,7 @@ function Water_read(){
 *  功能说明: Ele_read() 读电表
 */
 function Ele_read(){
-	SendData('{"add":"0001","automanual":1}\r\n');
+	Send_Data_Str(1,'{"add":"0001","automanual":1}\r\n');
 	vibrate()
 }
 
@@ -879,7 +879,7 @@ function Ele_read(){
 *  功能说明: Th_read() 读温湿度
 */
 function Th_read(){
-	SendData('{"add":"0009","read":0}\r\n');
+	Send_Data_Str(1,'{"add":"0009","read":0}\r\n');
 	vibrate()
 }
 
@@ -889,11 +889,11 @@ function Th_read(){
 // var socket_mask = true;
 var socket_mask=[0,0,0,0,0,0,0,0];
 function Socket(i){
-	// SendData('{"add":"00'+(i+13)+'":{"PowerSwitch_1":0/1}}\r\n');
+	// Send_Data_Str(1,'{"add":"00'+(i+13)+'":{"PowerSwitch_1":0/1}}\r\n');
 	if(socket_mask[i-1]){
-		SendData('{"add":"00'+(i+13)+'","params":{"PowerSwitch_1":0}}\r\n');
+		Send_Data_Str(1,'{"add":"00'+(i+13)+'","params":{"PowerSwitch_1":0}}\r\n');
 	}else{
-		SendData('{"add":"00'+(i+13)+'","params":{"PowerSwitch_1":1}}\r\n');
+		Send_Data_Str(1,'{"add":"00'+(i+13)+'","params":{"PowerSwitch_1":1}}\r\n');
 	}
 	vibrate()
 }
@@ -925,9 +925,9 @@ var sm_mask;
 function SmCon(){
 	// mui("#popover").popover('hidden', document.getElementById("div"));
 	if(sm_mask){
-		SendData('{"add":"0012","Arming":"'+sm_bug+'"}\r\n');
+		Send_Data_Str(1,'{"add":"0012","Arming":"'+sm_bug+'"}\r\n');
 	}else{
-		SendData('{"add":"0012","Disarming":"'+sm_bug+'"}\r\n');
+		Send_Data_Str(1,'{"add":"0012","Disarming":"'+sm_bug+'"}\r\n');
 	}
 	vibrate()
 }
