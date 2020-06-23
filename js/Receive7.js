@@ -18,7 +18,7 @@ function Receive(s,a){
 	}
 }
 function Receive7(obj7){
-// 窗户位置 || 窗户速度(速度1:运动时间2000;2:1600;3:1300;4:1000)
+// 窗户位置 || 窗户速度(速度1:运动时间700;2:600;3:500;4:400)
 	pos_buf = (obj7.actuatorposition)*1;
 	$("#slider_pos").text(pos_buf);
 	$("#slider1").val(pos_buf);
@@ -60,22 +60,22 @@ var pos_buf,pos_buf1;
 	switch(obj7.speedwindow){
 		case 1:{
 			$("#get4").css("background","yellow");
-			speed_buf = 2000;
+			speed_buf = 700;
 			break;
 		}
 		case 2:{
 			$("#get5").css("background","yellow");
-			speed_buf = 1600;
+			speed_buf = 600;
 			break;
 		}
 		case 3:{
 			$("#get6").css("background","yellow");
-			speed_buf = 1300;
+			speed_buf = 500;
 			break;
 		}
 		case 4:{
 			$("#get7").css("background","yellow");
-			speed_buf = 1000;
+			speed_buf = 400;
 			break;
 		}
 	}

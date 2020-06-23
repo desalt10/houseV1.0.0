@@ -1,29 +1,6 @@
-
+//数据处理函数
 //---------------------------------------------------------------
-function onConnect(){//网络连接成功将自动调用该函数，用户只需编写执行代码即可;该函数用来表现网络连接成功的状态
-	/*******************************/
-	console.log("网络连接成功！");
-	// mui.toast("网络连接成功")
-	var s= state_bug;
-	StateRead(s);
-	$(".err").css("display","none")
-	/*******************************/
-}
-//---------------------------------------------------------------
-function Disconnect(num){//网络连接断开将自动调用该函数，用户只需编写执行代码即可；该函数用来表现网络连接断开的状态
-	if(num==1){//网络连接断开
-		CloseWebSocket()
-		SocketConnect(1,"str");//从新连接网络
-	}
-	else if(num==2){//网络连接异常
-		console.log("网络连接异常！");
-		//网页弹出对话框显示文本"网络连接异常！"
-		// mui.toast("网络异常")
-		$(".err").css("display","block")
-	}
-}
-//---------------------------------------------------------------
-function Data_Dispose(str,hex){//数据处理函数
+function Data_Dispose(str){
 	console.log(str);//控制台输出数据；控制台打开放式：用浏览器打开网页（.html文件），按键盘按键F12即可进入浏览器的调试台，选择“控制台”或“Console”选项；
 	
 /**
@@ -139,9 +116,4 @@ function Data_Dispose(str,hex){//数据处理函数
 	//    }
 	// }
 	
-}
-//---------------------------------------------------------------
-function SendData(Data){
-	if(DataType=="hex")Send_Data_Hex(Data);//发送十六进制数数据
-	else if(DataType=="str") Send_Data_Str(Data);//发送字符串数据
 }
