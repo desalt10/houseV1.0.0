@@ -87,13 +87,13 @@
 	padding-left: 0;
 	padding-right: 0;
 }
+
 /*文字颜色*/
 .text-bule{
 	color: blue;
 }
 .t-40{
 	font-size: 0.4rem;
-	
 }
 .t-align{
 	text-align: center;
